@@ -1,0 +1,24 @@
+@import "../../styles/constants";
+
+.btns__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: $default_spacing;
+  border-radius: $default_radius;
+  margin: 0 $default_spacing;
+
+  &_dotted {
+    background: inherit;
+    border: 1px solid $light_4;
+
+    &:hover {
+      border-color: $light_2;
+    }
+  }
+  
+  &:hover {
+    cursor: pointer;
+    color: $light_2;
+  }
+}

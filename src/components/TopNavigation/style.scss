@@ -1,0 +1,30 @@
+@import "../../styles/constants";
+
+.topNavigation {
+  height: $navigation_height;
+  background-color: $dark_4;
+  box-shadow: $shadow_down;
+  border-bottom-left-radius: $default_radius;
+  color: $light_4;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__item {
+    padding: $default_spacing;
+    height: $navigation_height;
+    display: flex;
+    align-items: center;
+
+    & img {
+      height: 100%;
+    }
+  }
+}
+
+.btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
