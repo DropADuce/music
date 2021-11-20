@@ -1,26 +1,26 @@
 import React, {FC} from 'react';
-import {button_types} from "./types";
+import {button_display_types, button_types} from "./types";
 import './style.scss'
 
 interface IButton {
-    type?: button_types
+    display_type?: button_display_types;
+    type?: button_types;
+    action?: () => void
 }
 
-const getClassName: (type: button_types | undefined) => string = (type) => {
+const getClassName: (type: button_display_types | undefined) => string = (type) => {
     let defaultClassName = 'btns__btn'
     if (type) {
-        if (type === button_types.dotted) {
-            defaultClassName = defaultClassName + ' ' + defaultClassName + '_dotted'
-        }
+        defaultClassName = `${defaultClassName} ${defaultClassName}_${type}`
     }
     return defaultClassName
 }
 
-const Button:FC<IButton> = ({children, ...props}) => {
+const Button: FC<IButton> = ({children, ...props}) => {
     return (
-        <div className={getClassName(props.type)}>
+        <button onClick={props.action} className={getClassName(props.display_type)} type={props.type || undefined}>
             {children}
-        </div>
+        </button>
     );
 };
 

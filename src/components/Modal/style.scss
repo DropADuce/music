@@ -1,0 +1,30 @@
+@import "../../styles/constants";
+
+.modal {
+  position: fixed;
+  background-color: rgba($dark_1, .5);
+  top: $navigation_height;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $light_5;
+  box-shadow: $shadow_down;
+
+  &__window {
+    max-height: 90%;
+    margin: calc(#{$default_spacing} * 4);
+    padding: $default_spacing;
+    border: 1px solid $dark_6;
+    border-radius: $default_radius;
+    background-color: $dark_5;
+  }
+}
+
+.modalWindow {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}

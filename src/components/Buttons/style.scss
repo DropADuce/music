@@ -7,18 +7,27 @@
   padding: $default_spacing;
   border-radius: $default_radius;
   margin: 0 $default_spacing;
+  color: $light_4;
 
-  &_dotted {
-    background: inherit;
-    border: 1px solid $light_4;
-
-    &:hover {
-      border-color: $light_2;
-    }
-  }
-  
   &:hover {
     cursor: pointer;
     color: $light_2;
+  }
+
+  &_submit {
+    border: 0 solid $dark_6;
+    font-size: 1.3rem;
+    background-color: $dark_5;
+    transition: all 0.3s;
+
+    &:hover {
+      background: $confirm_color;
+      color: $dark_5;
+    }
+  }
+
+  &_dotted {
+    background: inherit;
+    border: none;
   }
 }

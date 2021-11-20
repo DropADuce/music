@@ -1,0 +1,14 @@
+@import "../../styles/constants";
+
+input {
+  box-sizing: border-box;
+  color: $light_6;
+  font-weight: 300;
+  font-size: 1.3rem;
+  background-color: $dark_6;
+  padding: $default_spacing;
+  margin-bottom: $default_spacing;
+  width: 100%;
+  border: 0px solid transparent;
+  border-bottom: 1px solid $dark_1;
+}
