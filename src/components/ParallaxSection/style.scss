@@ -1,0 +1,24 @@
+@import "../../styles/constants";
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba($dark_6, 0.7);
+}
+
+.section__item {
+  font-weight: bolder;
+  font-size: 1.3rem;
+  color: $light_4;
+  margin: calc(#{$default_spacing} * 2) $default_spacing;
+  letter-spacing: calc(#{$default_spacing} / 2);
+  line-height: 2;
+
+  &_bordered {
+    padding: $default_spacing;
+    border: $default_spacing solid $light_4;
+    border-top: none;
+  }
+}
