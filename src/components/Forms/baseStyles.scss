@@ -12,3 +12,8 @@ input {
   border: 0px solid transparent;
   border-bottom: 1px solid $dark_1;
 }
+
+.error {
+  font-weight: bolder;
+  color: $light_6;
+}

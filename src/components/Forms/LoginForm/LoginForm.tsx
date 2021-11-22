@@ -1,4 +1,5 @@
 import {Field, Form, Formik, FormikHelpers} from 'formik';
+import * as yup from 'yup'
 import React, {FC} from 'react';
 import '../baseStyles.scss'
 import './style.scss'
@@ -15,20 +16,56 @@ interface ILoginProps {
     setVisible: SetModalVisible
 }
 
-const LoginForm:FC<ILoginProps> = ({setVisible}) => {
+const LoginForm: FC<ILoginProps> = ({setVisible}) => {
+
+    const validationScheme = yup.object().shape({
+        email: yup.string().email('Это не Email!').required('Email должен быть указан обязательно'),
+        password: yup.string().required('Пароль не введен!')
+    })
+
+    const initialValues = {
+        email: '',
+        password: ''
+    }
+
     return (
-        <Formik initialValues={{email: '', password: ''}}
-                onSubmit={(values: ILoginData, {setSubmitting}: FormikHelpers<ILoginData>) => {
-                    setTimeout(() => {
-                        console.log(values)
-                        setSubmitting(false)
-                    }, 500)
-                }}>
-            <Form>
-                <Field id={'email'} name={'email'} type={'email'} placeholder={'Введите ваш email'}/>
-                <Field id={'password'} name={'password'} type={'password'} placeholder={'Введите пароль'}/>
-                <Button action={() => setVisible(prev => !prev)} type={button_types.submit} display_type={button_display_types.submit}>Войти!</Button>
-            </Form>
+        <Formik initialValues={initialValues}
+                onSubmit={(values: ILoginData) => console.log(values)}
+                validateOnBlur
+                validationSchema={validationScheme}
+        >
+            {({values, errors, touched, handleChange, handleBlur, isValid, handleSubmit}) => (
+                <Form>
+                    <Field id={'email'}
+                           name={'email'}
+                           type={'email'}
+                           placeholder={'Введите ваш email'}
+                           onChange={handleChange}
+                           onBlur={handleBlur}
+                           value={values.email}
+                    />
+                    {touched.email && errors.email && <p className={'error'}>{errors.email}</p>}
+                    <Field id={'password'}
+                           name={'password'}
+                           type={'password'}
+                           placeholder={'Введите ваш пароль'}
+                           onChange={handleChange}
+                           onBlur={handleBlur}
+                           value={values.password}
+                    />
+                    {touched.password && errors.password && <p className={'error'}>{errors.password}</p>}
+                    <Button
+                        disabled={!isValid}
+                        type={button_types.submit}
+                        display_type={button_display_types.submit}
+                        action={() => {
+                            handleSubmit()
+                            setVisible(prev => !prev)
+                        }}>
+                        Войти!
+                    </Button>
+                </Form>
+            )}
         </Formik>
     );
 };

@@ -9,11 +9,6 @@
   margin: 0 $default_spacing;
   color: $light_4;
 
-  &:hover {
-    cursor: pointer;
-    color: $light_2;
-  }
-
   &_submit {
     border: 0 solid $dark_6;
     font-size: 1.3rem;
@@ -29,5 +24,16 @@
   &_dotted {
     background: inherit;
     border: none;
+  }
+
+  &:disabled {
+    color: $dark_1;
+    background-color: $dark_6;
+    border: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+    color: $light_2;
   }
 }
