@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {FC} from 'react';
 import './style.scss'
 import {NavLink} from "react-router-dom";
 import music_logo from '../../assets/music_logo.png'
@@ -6,10 +6,19 @@ import Button from "../Buttons/Button";
 import {button_display_types} from "../Buttons/types";
 import Modal from "../Modal/Modal";
 import LoginForm from "../Forms/LoginForm/LoginForm";
+import useAction from "../../hooks/useAction";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
 
-const TopNavigation = () => {
+interface INavProps {
+    isAuth: boolean,
+    user: string
+}
 
-    const [loginModalOpen, setLoginModalOpen] = useState(false)
+const TopNavigation:FC<INavProps> = ({isAuth, user}) => {
+
+    // const [loginModalOpen, setLoginModalOpen] = useState(false)
+    const {setIsAuth, setModalOpen} = useAction()
+    const authState = useTypedSelector(state => state.auth)
 
     return (
         <>
@@ -19,16 +28,25 @@ const TopNavigation = () => {
                 </NavLink>
                 <div className="topNavigation__item">
                     <div className="btns">
-                        <Button display_type={button_display_types.dotted} action={
-                            () => setLoginModalOpen(prev => !prev)
-                        }>Вход</Button>
+                        {isAuth ?
+                            <Button display_type={button_display_types.dotted}
+                            action={() => setIsAuth(false)}>
+                                {user}
+                            </Button>
+                            :
+                            <Button display_type={button_display_types.dotted} action={
+                                () => {setModalOpen(true)}
+                            }>Вход</Button>
+                        }
                     </div>
                 </div>
             </nav>
 
-            {loginModalOpen && (
-                <Modal title={"Укажите ваши данные для входа"} setVisible={setLoginModalOpen}>
-                    <LoginForm setVisible={setLoginModalOpen}/>
+            {authState.isLoginOpen && (
+                <Modal title={"Укажите ваши данные для входа"} setVisible={() => {
+                    setModalOpen(!authState.isLoginOpen)
+                }}>
+                    <LoginForm isFetching={authState.isFetching}/>
                 </Modal>)}
 
         </>

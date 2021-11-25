@@ -5,7 +5,7 @@ import './style.scss'
 interface IButton {
     display_type?: button_display_types;
     type?: button_types;
-    action?: () => void,
+    action: () => void,
     disabled?: boolean
 }
 
@@ -19,7 +19,10 @@ const getClassName: (type: button_display_types | undefined) => string = (type) 
 
 const Button: FC<IButton> = ({children, ...props}) => {
     return (
-        <button onClick={props.action}
+        <button onClick={e => {
+            e.stopPropagation()
+            props.action()
+        }}
                 disabled={props.disabled || false}
                 className={getClassName(props.display_type)}
                 type={props.type || undefined}>

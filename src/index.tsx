@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import './styles/main.scss'
+import {MusicApp} from './App';
 
 ReactDOM.render(
-    <App/>,
+    <MusicApp/>,
     document.getElementById('root')
 );
