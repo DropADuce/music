@@ -5,7 +5,7 @@ export const initialState: IAuthState = {
     isAuth: false,
     isFetching: false,
     error: '',
-    isLoginOpen: false,
+    isModalOpen: false,
     user: {} as IUser
 }
 
@@ -24,7 +24,7 @@ export const AuthReducer = (state = initialState, action: AuthType):IAuthState  
             return {...state, error: action.payload}
         }
         case AuthActions.SET_MODAL_OPEN: {
-            return {...state, isLoginOpen: state.isFetching ? true : action.payload}
+            return {...state, isModalOpen: state.isFetching ? true : action.payload}
         }
         default: {
             return state

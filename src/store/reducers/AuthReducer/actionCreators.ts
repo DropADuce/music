@@ -25,7 +25,6 @@ export const authActionCreators = {
                 }
             } catch (e) {
                 console.log(e)
-                // dispatch('Возникли проблемы при попытке входа, попробуйте еще раз!')
             } finally {
                 dispatch(authActionCreators.setFetching(false))
                 if (isAuth) {

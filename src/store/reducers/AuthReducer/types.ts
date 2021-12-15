@@ -4,7 +4,7 @@ export interface IAuthState {
     isAuth: boolean,
     isFetching: boolean,
     error: '',
-    isLoginOpen: boolean
+    isModalOpen: boolean
     user: IUser
 }
 

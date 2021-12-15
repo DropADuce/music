@@ -1,0 +1,30 @@
+@import "../../../styles/constants";
+
+.fieldset {
+  border: 1px solid $light_1;
+  border-radius: $default_radius;
+  margin-bottom: $default_spacing;
+
+  legend {
+    font-size: 1.3rem;
+    font-weight: lighter;
+    padding: 0 $default_spacing;
+  }
+}
+
+.row-container {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+
+  &__item {
+    width: 100%;
+    margin: $default_spacing;
+
+    input {
+      border-bottom: none;
+      border-radius: $default_radius;
+    }
+
+  }
+}
