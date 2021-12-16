@@ -2,7 +2,6 @@ import {AuthActions, SET_AUTH_TYPE, SET_FETCHING_TYPE, SET_MODAL_OPEN_TYPE, SET_
 import {DispatchType} from "../../store";
 import {auth} from "../../../api/Auth";
 import {IUser} from "../../../Models/IUser";
-import {Simulate} from "react-dom/test-utils";
 
 export const authActionCreators = {
     setUser: (user: IUser): SET_USER_TYPE => ({type: AuthActions.SET_USER, payload: user}),

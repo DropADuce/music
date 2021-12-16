@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 import music_logo from '../../assets/music_logo.png';
 import Button from '../Buttons/Button';
 import { button_display_types } from '../Buttons/types';
-import Modal from '../Modal/Modal';
 import useAction from '../../hooks/useAction';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import FormContainer from './FormContainer';

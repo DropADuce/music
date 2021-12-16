@@ -17,38 +17,3 @@ input {
   border: 0 solid transparent;
   border-bottom: 1px solid $dark_1;
 }
-
-/*
-input {
-  box-sizing: border-box;
-  color: $light_6;
-  font-weight: 300;
-  font-size: 1.3rem;
-  background-color: $dark_6;
-  padding: $default_spacing;
-  margin-bottom: $default_spacing;
-  width: 100%;
-  border: 0 solid transparent;
-  border-bottom: 1px solid $dark_1;
-}
-
-.error {
-  font-weight: bolder;
-  color: $light_6;
-}
-
-.group {
-  border: 1px solid $light_1;
-  border-radius: $default_radius;
-
-  &__flex {
-    display: flex;
-    align-items: center;
-  }
-
-  input {
-    margin: $default_spacing;
-    border-bottom: none;
-    border-radius: $default_radius;
-  }
-}*/
