@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo, useState } from 'react';
+import React, { FC, useMemo, useState } from 'react';
 import LoginForm from '../Forms/LoginForm/LoginForm';
 import { SelectedModal } from './TopNavigation';
 import Modal from '../Modal/Modal';

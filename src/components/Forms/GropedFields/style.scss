@@ -5,10 +5,14 @@
   border-radius: $default_radius;
   margin-bottom: $default_spacing;
 
-  legend {
-    font-size: 1.3rem;
+  &__legend {
     font-weight: lighter;
     padding: 0 $default_spacing;
+
+    &_focused {
+      font-weight: bolder;
+      font-size: 1.3rem;
+    }
   }
 }
 
@@ -27,4 +31,14 @@
     }
 
   }
+}
+
+.animated-legend-enter {
+  opacity: 0;
+}
+
+.animated-legend-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 800ms, transform 800ms;
 }

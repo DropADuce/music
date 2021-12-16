@@ -4,7 +4,6 @@ import DatePickerField from '../DatePicker/DatePickerField';
 import { button_display_types, button_types } from '../../Buttons/types';
 import Button from '../../Buttons/Button';
 import { regValidator } from '../validators/regValidator';
-import { isValidField } from '../validators/validators';
 import GroupedFields from '../GropedFields/GroupedFields';
 
 interface IValues {
